@@ -1,0 +1,19 @@
+id: ssl-dns-names
+
+info:
+  name: SSL DNS Names
+  author: Naku Tenshi
+  severity: info
+  tags: ssl
+
+ssl:
+  - address: "{{Host}}:{{Port}}"
+
+    extractors:
+      - type: json
+        json:
+          - ".subject_an[]"
+
+      - type: json
+        json:
+          - ".subject_cn"
