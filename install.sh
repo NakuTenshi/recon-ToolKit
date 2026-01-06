@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
+# apt installtion
+apt install whois
 
 # pip installtion
-#python3 -m pip install dnsgen
+python3 -m pip install dnsgen
 
 # go installtion
-#go install github.com/d3mondev/puredns/v2@latest
-
+go install github.com/d3mondev/puredns/v2@latest
+go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
 
 
