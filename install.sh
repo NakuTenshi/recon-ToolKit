@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+
+# pip installtion
+#python3 -m pip install dnsgen
+
+# go installtion
+#go install github.com/d3mondev/puredns/v2@latest
+
+
+
+
 shell=$(echo $SHELL | cut -d"/" -f4)
 shell_path="$HOME/.${shell}rc"
 
