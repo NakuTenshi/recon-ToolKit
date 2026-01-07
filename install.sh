@@ -28,7 +28,17 @@ for file in ./scripts/*.sh; do
 
     name="$(basename "${file%.sh}")"
 
-    cp "$file" "/bin/$name"
+    cp -r "$file" "/bin/$name"
+
+done
+
+for file in ./scripts/*.py; do
+
+    [[ -e "$file" ]] || continue
+
+    name="$(basename "${file%.py}")"
+
+    cp -r "$file" "/bin/$name"
 
 done
 
