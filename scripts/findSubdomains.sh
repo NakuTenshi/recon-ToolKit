@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 {
 	crt $1;
 	subfinder -d $1 -all -silent;
