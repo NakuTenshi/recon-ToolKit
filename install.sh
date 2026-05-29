@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt update && apt upgrade -y
+#apt update && apt upgrade -y
 
 shell=$(echo $SHELL | cut -d"/" -f4)
 shell_path="$HOME/.${shell}rc"
@@ -44,6 +44,9 @@ apt install docker -y
 apt install docker.io -y
 apt install nmap -y 
 apt install whois -y
+apt install wireshark -y
+apt install build-essential -y 
+apt install ruby-dev -y
 
 # system demon inits
 systemctl start docker
@@ -55,6 +58,7 @@ pythone -m pip install dnsgen
 echo "unalias gau" >> ~/.zshrc
 
 # installing tools with go
+go install -v github.com/ImAyrix/fallparams@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/tomnomnom/waybackurls@latest
 go install -v github.com/lc/gau/v2/cmd/gau@latest
@@ -66,6 +70,9 @@ go install -v github.com/tomnomnom/anew@latest
 go install -v github.com/bitquark/shortscan/cmd/shortscan@latest
 go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+
+# gem installtions 
+gem install wpscan
 
 
 # clone the repoes with git 
@@ -96,9 +103,9 @@ nuclei -update
 nuclei -update-templates
 
 # downloading wordlist
-mkdir ~/myWordList
-curl http://wordlisthub.pythonanywhere.com/api/download/ -o ~/myWordList/myWordList.zip
-unzip ~/myWordList/myWordList.zip
+#mkdir ~/myWordList
+#curl http://wordlisthub.pythonanywhere.com/api/download/ -o ~/myWordList/myWordList.zip
+#unzip ~/myWordList/myWordList.zip
 
 cd ~
 echo "[+] the installtion of tools is done";
