@@ -55,6 +55,10 @@ systemctl enable docker
 # pip installtions
 pythone -m pip install dnsgen
 
+# pipx installtions 
+pipx install uro
+
+
 echo "unalias gau" >> ~/.zshrc
 
 # installing tools with go

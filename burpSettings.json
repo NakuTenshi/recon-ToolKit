@@ -88,7 +88,12 @@
                     "gif",
                     "jpg",
                     "png",
-                    "css"
+                    "ico",
+                    "css",
+                    "woff",
+                    "woff2",
+                    "ttf",
+                    "svg"
                 ],
                 "hide_specific":false,
                 "show_items":[
@@ -151,7 +156,12 @@
                     "gif",
                     "jpg",
                     "png",
-                    "css"
+                    "ico",
+                    "css",
+                    "woff",
+                    "woff2",
+                    "ttf",
+                    "svg"
                 ],
                 "hide_specific":false,
                 "show_items":[
@@ -275,7 +285,8 @@
                 "scope_advanced_mode":false,
                 "store":true,
                 "strip_chunked_encoding_metadata":true,
-                "urls":[]
+                "urls":[],
+                "use_text_event_stream_header":true
             }
         },
         "misc":{
@@ -375,9 +386,36 @@
             },
             "by_file_extension":{
                 "hide_items":[
-                    ".*\\.(css|js|jpg|jpeg|png|gif|svg|woff|woff2|ttf|eot|otf|ico|mp4|mp3|avi|mov|mpeg|flv|m4a|zip|rar|tar|gz|7z|pdf|js|docx?|xlsx?|pptx?|csv)$"
+                    "gif",
+                    "jpg",
+                    "jpeg",
+                    "png",
+                    "ico",
+                    "css",
+                    "woff",
+                    "woff2",
+                    "ttf",
+                    "svg",
+                    "eot",
+                    "otf",
+                    "webp",
+                    "bmp",
+                    "avif",
+                    "mp3",
+                    "mp4",
+                    "avi",
+                    "mov",
+                    "mpeg",
+                    "webm",
+                    "pdf",
+                    "zip",
+                    "rar",
+                    "7z",
+                    "gz",
+                    "tar",
+                    "js"
                 ],
-                "hide_specific":false,
+                "hide_specific":true,
                 "show_items":[
                     "asp",
                     "aspx",
@@ -390,11 +428,11 @@
                 "port":""
             },
             "by_mime_type":{
-                "show_css":false,
+                "show_css":true,
                 "show_flash":true,
                 "show_html":true,
-                "show_images":false,
-                "show_other_binary":false,
+                "show_images":true,
+                "show_other_binary":true,
                 "show_other_text":true,
                 "show_script":true,
                 "show_xml":true
@@ -425,7 +463,7 @@
             "rules":[
                 {
                     "boolean_operator":"and",
-                    "enabled":false,
+                    "enabled":true,
                     "match_condition":"(^gif$|^jpg$|^png$|^css$|^js$|^ico$|^svg$|^eot$|^woff$|^woff2$|^ttf$)",
                     "match_relationship":"does_not_match",
                     "match_type":"file_extension"
@@ -445,7 +483,7 @@
                 },
                 {
                     "boolean_operator":"and",
-                    "enabled":true,
+                    "enabled":false,
                     "match_relationship":"is_in_target_scope",
                     "match_type":"url"
                 }
@@ -453,11 +491,11 @@
         },
         "intercept_server_responses":{
             "automatically_update_content_length_header_when_the_response_is_edited":true,
-            "do_intercept":true,
+            "do_intercept":false,
             "rules":[
                 {
                     "boolean_operator":"or",
-                    "enabled":false,
+                    "enabled":true,
                     "match_condition":"text",
                     "match_relationship":"matches",
                     "match_type":"content_type_header"
@@ -483,22 +521,16 @@
                 },
                 {
                     "boolean_operator":"and",
-                    "enabled":true,
+                    "enabled":false,
                     "match_relationship":"is_in_target_scope",
                     "match_type":"url"
-                },
-                {
-                    "boolean_operator":"and",
-                    "enabled":true,
-                    "match_relationship":"was_intercepted",
-                    "match_type":"request"
                 }
             ]
         },
         "intercept_web_sockets_messages":{
-            "client_to_server_messages":false,
+            "client_to_server_messages":true,
             "intercept_in_scope_only":false,
-            "server_to_client_messages":false
+            "server_to_client_messages":true
         },
         "match_replace_disable_out_of_scope":false,
         "match_replace_rules":[
@@ -593,7 +625,7 @@
         ],
         "miscellaneous":{
             "disable_logging_to_history_and_site_map":false,
-            "disable_out_of_scope_logging_to_history_and_site_map":true,
+            "disable_out_of_scope_logging_to_history_and_site_map":false,
             "disable_web_interface":false,
             "remove_unsupported_encodings_from_accept_encoding_headers_in_incoming_requests":true,
             "set_connection_close_header_on_responses":false,
@@ -632,513 +664,7 @@
         "ssl_pass_through":{
             "apply_to_out_of_scope_items":true,
             "automatically_add_entries_on_client_ssl_negotiation_failure":false,
-            "rules":[
-                {
-                    "enabled":true,
-                    "host":".*\\.google\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.google\\.*",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.gstatic\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googleapis\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.google-analytics\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googletagmanager\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googletagservices\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.google\\.co.*",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.doubleclick\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googleadservices\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googlesyndication\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googleusercontent\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.mozilla\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.mozilla\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.yahoo\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.firefox\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.bugsnag\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.yastatic\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.admetric.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.twimg\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.mozilla\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.yimg\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.x-tags\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.uadexhange\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.uzon\\.id",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.notifa\\.info",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cloudfront\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.indihome\\.co\\.id",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.upoint\\.id",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.pki\\.goog",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.icloud\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.icloud-content\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.youtube\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.whatruns\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.wappalyzer\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.apple\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.withgoogle\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.buildwith\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":"buildwith\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.ytimg\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.vimeo\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.vimeocdn\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.facebook\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.instagram\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.linkedin\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.twitter\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.microsoft\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.adobe\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.googleapis\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.stackoverflow\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.github\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.slack\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.dropbox\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.spotify\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.tumblr\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.amazon\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.reddit\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.wikipedia\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.bing\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.gitlab\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.shodan\\.io",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.skype\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.visualstudio\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cloudflare\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.azurewebsites\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.fastly\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.akamai\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.maxcdn\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cdn77\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.maxcdn\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cdnjs\\.cloudflare\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.medium\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cdn.jsdelivr\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.telegram\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.oracle\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.ibm\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.docker\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.bitbucket\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.shopify\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.pinterest\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.soundcloud\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.hubspot\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cloudinary\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.pendo\\.io",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cdnjs\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.jquery\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cachefly\\.net",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.w3schools\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.onetrust\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.w3\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.hulu\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.azure\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.licdn\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.woocommerce\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.cookielaw\\.org",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.blogger\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.gvt2\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.grammarly\\.io",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.grammarly\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.usemessages\\.com",
-                    "protocol":"any"
-                },
-                {
-                    "enabled":true,
-                    "host":".*\\.canva\\.com",
-                    "protocol":"any"
-                }
-            ]
+            "rules":[]
         },
         "web_sockets_history_display_filter":{
             "by_annotation":{
@@ -1172,6 +698,7 @@
         "follow_redirections":"never",
         "normalize_line_endings":true,
         "process_cookies_in_redirections":false,
+        "streaming_response_timeout_millis":600000,
         "strip_connection_header_over_http2":true,
         "unpack_gzip_deflate":true,
         "update_content_length":true
@@ -1212,7 +739,12 @@
                     "gif",
                     "jpg",
                     "png",
-                    "css"
+                    "ico",
+                    "css",
+                    "woff",
+                    "woff2",
+                    "ttf",
+                    "svg"
                 ],
                 "hide_specific":false,
                 "show_items":[
