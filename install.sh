@@ -53,7 +53,8 @@ systemctl start docker
 systemctl enable docker
 
 # pip installtions
-pythone -m pip install dnsgen
+python3 -m pip install dnsgen
+python3 -m pip install recollapse
 
 # pipx installtions 
 pipx install uro
