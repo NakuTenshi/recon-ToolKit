@@ -44,6 +44,7 @@ apt install docker -y
 apt install docker.io -y
 apt install nmap -y 
 apt install whois -y
+apt install crunch -y
 apt install wireshark -y
 apt install build-essential -y 
 apt install ruby-dev -y
