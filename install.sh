@@ -63,6 +63,7 @@ pipx install uro
 echo "unalias gau" >> ~/.zshrc
 
 # installing tools with go
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 go install -v github.com/ImAyrix/fallparams@latest
 go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 go install -v github.com/tomnomnom/waybackurls@latest
