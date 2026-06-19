@@ -64,19 +64,21 @@ pipx install uro
 echo "unalias gau" >> ~/.zshrc
 
 # installing tools with go
-go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
-go install -v github.com/ImAyrix/fallparams@latest
-go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
-go install -v github.com/tomnomnom/waybackurls@latest
-go install -v github.com/lc/gau/v2/cmd/gau@latest
-go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
-go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
-go install -v github.com/d3mondev/puredns/v2@latest
+go install github.com/tomnomnom/unfurl@latest
 go install -v github.com/tomnomnom/anew@latest 
+go install -v github.com/lc/gau/v2/cmd/gau@latest
+go install -v github.com/ImAyrix/fallparams@latest
+go install -v github.com/d3mondev/puredns/v2@latest
+go install -v github.com/tomnomnom/waybackurls@latest
+go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
 go install -v github.com/bitquark/shortscan/cmd/shortscan@latest
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
 go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+
 
 # gem installtions 
 gem install wpscan
