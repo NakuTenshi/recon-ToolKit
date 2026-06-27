@@ -30,6 +30,8 @@ for file in ./scripts/*.py; do
 
 done
 
+# export variables 
+echo "export PDCP_API_KEY=bf2c155c-2034-431a-8f0b-72f0ead86a95" >> shell_path
 
 # installing tools with apt
 apt install ffuf -y
