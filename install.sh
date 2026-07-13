@@ -88,23 +88,18 @@ gem install wpscan
 
 # clone the repoes with git 
 git clone https://github.com/Sh1Yo/x8 ~/git/x8
-git clone https://github.com/NakuTenshi/ASNinformer/ ~/git/tools/ASNinformer
-git clone https://github.com/NakuTenshi/JSHound/ ~/git/tools/JSHound
-git clone https://github.com/nakuTenshi/wbf/ ~/git/tools/wbf
-git clone https://github.com/nakuTenshi/RoboBack ~/git/tools/RoboBack
-
-cd ~/git/tools/ASNinformer
-bash ./install.sh
-
-cd ~/git/tools/JSHound
-bash ./install.sh
-
-cd ~/git/tools/wbf
-bash ./install.sh
-
-cd ~/git/tools/RoboBack
-bash ./install.sh
-
+git clone https://github.com/NakuTenshi/ASNinformer/ ~/tools/ASNinformer
+git clone https://github.com/nakuTenshi/wbf/ ~/tools/wbf
+git clone https://github.com/nakuTenshi/RoboBack ~/tools/RoboBack
+git clone https://github.com/NakuTenshi/JSHound/ ~/tools/JSHound
+git clone https://github.com/NakuTenshi/x9 ~/tools/x9
+git clone https://github.com/NakuTenshi/domHound ~/tools/domHound
+git clone https://github.com/NakuTenshi/0x00Tower ~/tools/0x00Tower
+git clone https://github.com/NakuTenshi/dorkgen ~/tools//dorkgen
+git clone https://github.com/NakuTenshi/JWTKeyCracker ~/tools/JWTKeyCracker
+git clone https://github.com/NakuTenshi/hookWord ~/tools/hookWord
+git clone https://github.com/NakuTenshi/UnCDN ~/tools/UnCDN
+git clone https://github.com/NakuTenshi/cert2android ~/tools/cert2android
 
 # docker installtions
 docker build -t x8 ~/git/x8/.
