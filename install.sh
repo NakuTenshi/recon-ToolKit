@@ -30,11 +30,11 @@ for file in ./scripts/*.py; do
 
 done
 
-# export variables 
-echo "export PDCP_API_KEY=bf2c155c-2034-431a-8f0b-72f0ead86a95" >> shell_path
 
 # installing tools with apt
 apt install ffuf -y
+apt install adb -y 
+apt install fastboot -y
 apt install git -y
 apt install curl -y
 apt install git -y 
@@ -62,9 +62,6 @@ python3 -m pip install recollapse
 # pipx installtions 
 pipx install uro
 
-
-echo "unalias gau" >> ~/.zshrc
-
 # installing tools with go
 go install github.com/tomnomnom/unfurl@latest
 go install -v github.com/tomnomnom/anew@latest 
@@ -87,22 +84,22 @@ gem install wpscan
 
 
 # clone the repoes with git 
-git clone https://github.com/Sh1Yo/x8 ~/git/x8
-git clone https://github.com/NakuTenshi/ASNinformer/ ~/tools/ASNinformer
-git clone https://github.com/nakuTenshi/wbf/ ~/tools/wbf
-git clone https://github.com/nakuTenshi/RoboBack ~/tools/RoboBack
-git clone https://github.com/NakuTenshi/JSHound/ ~/tools/JSHound
-git clone https://github.com/NakuTenshi/x9 ~/tools/x9
-git clone https://github.com/NakuTenshi/domHound ~/tools/domHound
-git clone https://github.com/NakuTenshi/0x00Tower ~/tools/0x00Tower
-git clone https://github.com/NakuTenshi/dorkgen ~/tools//dorkgen
-git clone https://github.com/NakuTenshi/JWTKeyCracker ~/tools/JWTKeyCracker
-git clone https://github.com/NakuTenshi/hookWord ~/tools/hookWord
-git clone https://github.com/NakuTenshi/UnCDN ~/tools/UnCDN
-git clone https://github.com/NakuTenshi/cert2android ~/tools/cert2android
+git clone https://github.com/Sh1Yo/x8 /home/naku/git/x8
+git clone https://github.com/NakuTenshi/ASNinformer/ /home/naku/code/tools/ASNinformer
+git clone https://github.com/nakuTenshi/wbf/ /home/naku/code/tools/wbf
+git clone https://github.com/nakuTenshi/RoboBack /home/naku/code/tools/RoboBack
+git clone https://github.com/NakuTenshi/JSHound/ /home/naku/code/tools/JSHound
+git clone https://github.com/NakuTenshi/x9 /home/naku/code/tools/x9
+git clone https://github.com/NakuTenshi/domHound /home/naku/code/tools/domHound
+git clone https://github.com/NakuTenshi/0x00Tower /home/naku/code/tools/0x00Tower
+git clone https://github.com/NakuTenshi/dorkgen /home/naku/code/tools/dorkgen
+git clone https://github.com/NakuTenshi/JWTKeyCracker /home/naku/code/tools/JWTKeyCracker
+git clone https://github.com/NakuTenshi/hookWord /home/naku/code/tools/hookWord
+git clone https://github.com/NakuTenshi/UnCDN /home/naku/code/tools/UnCDN
+git clone https://github.com/NakuTenshi/cert2android /home/naku/code/tools/cert2android
 
 # docker installtions
-docker build -t x8 ~/git/x8/.
+docker build -t x8 /home/naku/git/x8/.
 
 # update the template of nuclei
 nuclei -update
@@ -111,11 +108,6 @@ nuclei -update-templates
 # install claude 
 curl -fsSL https://claude.ai/install.sh | bash
 
-# downloading wordlist
-#mkdir ~/myWordList
-#curl http://wordlisthub.pythonanywhere.com/api/download/ -o ~/myWordList/myWordList.zip
-#unzip ~/myWordList/myWordList.zip
-
-cd ~
+cd /home/naku
 echo "[+] the installtion of tools is done";
 echo "[+] everything is ready";
