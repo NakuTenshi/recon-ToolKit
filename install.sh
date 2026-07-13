@@ -108,6 +108,9 @@ docker build -t x8 ~/git/x8/.
 nuclei -update
 nuclei -update-templates
 
+# install claude 
+curl -fsSL https://claude.ai/install.sh | bash
+
 # downloading wordlist
 #mkdir ~/myWordList
 #curl http://wordlisthub.pythonanywhere.com/api/download/ -o ~/myWordList/myWordList.zip
