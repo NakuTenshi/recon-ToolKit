@@ -30,6 +30,19 @@ for file in ./scripts/*.py; do
 
 done
 
+# installtion cargp
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source ~/.cargo/env
+
+
+# installing go 
+GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n1)
+wget -q "https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz" -O /tmp/go.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+grep -q '/usr/local/go/bin' ~/.profile || \
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.profile
+export PATH=$PATH:/usr/local/go/bin
+
 
 # installing tools with apt
 apt install ffuf -y
@@ -50,6 +63,7 @@ apt install crunch -y
 apt install wireshark -y
 apt install build-essential -y 
 apt install ruby-dev -y
+apt install pkg-config libssl-dev build-essential -y
 
 # system demon inits
 systemctl start docker
@@ -84,11 +98,10 @@ gem install wpscan
 
 
 # clone the repoes with git 
-git clone https://github.com/Sh1Yo/x8 /home/naku/git/x8
 git clone https://github.com/NakuTenshi/ASNinformer/ /home/naku/code/tools/ASNinformer
 git clone https://github.com/nakuTenshi/wbf/ /home/naku/code/tools/wbf
 git clone https://github.com/nakuTenshi/RoboBack /home/naku/code/tools/RoboBack
-git clone https://github.com/NakuTenshi/JSHound/ /home/naku/code/tools/JSHound
+git clone https://github.com/NakuTenshi/JSAgent/ /home/naku/code/tools/JSAgent
 git clone https://github.com/NakuTenshi/x9 /home/naku/code/tools/x9
 git clone https://github.com/NakuTenshi/domHound /home/naku/code/tools/domHound
 git clone https://github.com/NakuTenshi/0x00Tower /home/naku/code/tools/0x00Tower
@@ -98,8 +111,8 @@ git clone https://github.com/NakuTenshi/hookWord /home/naku/code/tools/hookWord
 git clone https://github.com/NakuTenshi/UnCDN /home/naku/code/tools/UnCDN
 git clone https://github.com/NakuTenshi/cert2android /home/naku/code/tools/cert2android
 
-# docker installtions
-docker build -t x8 /home/naku/git/x8/.
+# cargo installtions
+cargo install x8
 
 # update the template of nuclei
 nuclei -update
