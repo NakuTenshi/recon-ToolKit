@@ -41,7 +41,7 @@ This will:
 - Read the original input file
 - Read live_httpx.txt and extract just the domain names (first column, stripping protocol)
 - Create a list of domains that are in the input file but NOT in live_httpx.txt
-- Save this filtered list to a temporary file for dnsx
+- Save this filtered list to a **hidden** temporary file `.filtered_domains.txt` for dnsx
 
 ### Step 4: Run dnsx
 Execute on the filtered list (domains without HTTP services):
@@ -53,6 +53,8 @@ This will:
 - Save domains that resolve successfully to live_dnsx.txt
 
 If ~/resolvers.txt doesn't exist, fall back to system defaults by omitting the -r flag.
+
+**Cleanup:** Remove `.filtered_domains.txt` after dnsx completes.
 
 ### Step 5: Generate Summary Table
 
@@ -83,14 +85,11 @@ If ~/resolvers.txt doesn't exist, fall back to system defaults by omitting the -
 
 | Technology | Domains Using It |
 |------------|------------------|
-| WordPress | G |
-| Cloudflare | H |
-| nginx | I |
-| PHP | J |
-| jQuery | K |
+| WordPress | example.com, test.example.com, ... (G total) |
+| Cloudflare | api.example.com, www.example.com, ... (H total) |
 | ... | ... |
 
-(Show top 10 by frequency. Helps spot common stacks and potential targets.)
+(Show top 10 technologies by frequency. For each technology, list up to 5 domains; if more exist, append "..." and show total count in parentheses. Helps spot common stacks and potential targets.)
 
 **Output files created:**
 - `live_httpx.txt` — Domains with active HTTP/HTTPS services (status code, title, technologies)
