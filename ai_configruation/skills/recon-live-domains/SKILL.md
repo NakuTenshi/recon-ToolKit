@@ -21,7 +21,7 @@ Execute httpx on the input file with extended fields to capture complete respons
 
 ```bash
 # Run httpx with rich detail
-echo <input_file> | httpx -td -sc -title -server -cdn -ip -time -silent -o httpx_detail_live.txt
+echo <input_file> | httpx -td -sc -title -silent -o httpx_detail_live.txt
 
 # Extract just the URLs (first column) to live_httpx.txt
 awk '{print $1}' httpx_detail_live.txt > live_httpx.txt
